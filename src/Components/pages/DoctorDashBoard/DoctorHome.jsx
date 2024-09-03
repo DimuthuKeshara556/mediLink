@@ -175,7 +175,7 @@ const DoctorHome = () => {
 
   return (
     <div className="w-full h-screen flex  justify-end">
-      <div className="h-screen w-5/6 mt-20 px-10">
+      <div className="h-screen w-5/6 mt-24 px-10">
         <div className="w-full ">
           {dateFilteredAppointments.length > 0 ? (
             dateFilteredAppointments

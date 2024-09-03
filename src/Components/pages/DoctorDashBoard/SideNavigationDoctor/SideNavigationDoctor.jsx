@@ -32,7 +32,7 @@ const SideNavigationDoctor = () => {
     },
   ];
   return (
-    <div className="w-1/6 h-screen border-r-2 border-accent p-5 flex flex-col pt-20 fixed bg-white">
+    <div className="w-1/6 h-screen border-r-2 border-accent p-5 flex flex-col pt-24 fixed bg-white">
       <nav className="flex flex-col ">
         {navItems.map((item) => (
           <NavLink

@@ -90,9 +90,9 @@ const DashboardNavBar = () => {
 
   return (
     <nav
-      className={`fixed z-50 bg-gray-100 border-b-1 flex ${
+      className={`fixed z-50  border-b-1 flex ${
         user ? "flex-row-reverse" : "flex-row"
-      } md:flex-row  w-full h-auto p-5 md:px-10 py-2 items-center justify-between`}
+      } md:flex-row  w-full h-auto p-5 md:px-7 py-4 items-center justify-between`}
     >
       <img
         onClick={toggleMobileMenu}
@@ -102,9 +102,9 @@ const DashboardNavBar = () => {
       />
       <img className="h-[25px] hidden md:flex" src={logo} alt="logo" />
       <img className="h-[15px] md:hidden" src={logoSmall} alt="logo" />
-      <div className="flex gap-5 items-center">
+      <div className="flex gap-5 items-center bg-white p-2 rounded-full">
         {/* <NavLinks userRole={user?.role} /> */}
-        <div className="w-fit flex gap-3 items-center justify-end rounded-full">
+        <div className="w-fit flex gap-8 items-center justify-end rounded-full ">
           <div
             className={`px-5 py-2 rounded-3xl text-[10px] ${
               user.role == "P" ? "hidden" : "flex"
@@ -114,7 +114,7 @@ const DashboardNavBar = () => {
           </div>
           <div className="relative">
             <img
-              className="w-[35px] md:w-[30px] cursor-pointer hover:scale-105 p-1 bg-white border-1 rounded-full"
+              className="w-[35px] md:w-[35px] cursor-pointer hover:scale-105 "
               src={NotificationIcon}
               alt="notificationIcon"
               onClick={toggleNotifications}
@@ -128,7 +128,7 @@ const DashboardNavBar = () => {
           <div className={`${user.role == "D" ? "hidden" : "flex"}`}>
             <Link to={"/patient/user#favorite"}>
               <img
-                className="w-[27px] md:w-[30px] cursor-pointer p-1 bg-white border-1 rounded-full"
+                className="w-[27px] md:w-[30px] cursor-pointer "
                 src={hover ? FavIconFill : FavIconOutLine}
                 alt="favouriteIcon"
                 onMouseEnter={() => setHover(true)}
@@ -185,14 +185,20 @@ const UserControls = ({
   return (
     <div>
       {user ? (
-        <div className="relative">
-          <img
-            src={user.img}
-            alt="User"
-            style={{ width: 30, height: 30, borderRadius: "50%" }}
-            onClick={toggleDropdown}
-            className="cursor-pointer"
-          />
+        <div className="relative pr-14">
+          <div className="flex items-center gap-2">
+            <img
+              src={user.img}
+              alt="User"
+              style={{ width: 35, height: 35, borderRadius: "50%" }}
+              onClick={toggleDropdown}
+              className="cursor-pointer"
+            />
+            <div className={`flex flex-col ${user.role ==="P"?"flex":"hidden"}`}>
+              <p className="text-[12px] font-medium">{user.name}</p>
+              <p className="text-[12px] font-medium text-lightblueButton">Premium member</p>
+            </div>
+          </div>
           {isDropdownOpen && (
             <DropdownMenu
               handleProfileClick={handleProfileClick}

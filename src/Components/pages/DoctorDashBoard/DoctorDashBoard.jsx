@@ -169,7 +169,7 @@ const DoctorDashBoard = () => {
         status: "complete",
       });
 
-      alert("Successfully end the appointment!");
+      console.log("Successfully end the appointment!");
     } catch (error) {
       alert(`Error end the appointment: ${error.message}`);
     }
@@ -177,7 +177,7 @@ const DoctorDashBoard = () => {
 
   return (
     <div className="w-full h-screen flex  justify-end font-Inter">
-      <div className="h-screen w-5/6 mt-20 px-20 flex flex-col gap-10">
+      <div className="h-screen w-5/6 mt-24 px-20 flex flex-col gap-10">
         <div className="w-full">
           {dateFilteredAppointments.length > 0 ? (
             dateFilteredAppointments

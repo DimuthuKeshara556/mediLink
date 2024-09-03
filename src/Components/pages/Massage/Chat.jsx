@@ -91,7 +91,7 @@ const Chat = ({ userId, recipientId, sessionId }) => {
                 </div>
               ))
             ) : (
-              <div className="flex flex-col items-center justify-center">
+              <div className="flex flex-col h-full items-center justify-center">
                 <img className="w-[100px]" src={noMassage} alt="" />
                 <p className="text-gray-400 text-[13px] font-semibold ">
                   Currently, there are no messages.
