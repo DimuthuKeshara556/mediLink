@@ -102,9 +102,8 @@ const DashboardNavBar = () => {
       />
       <img className="h-[25px] hidden md:flex" src={logo} alt="logo" />
       <img className="h-[15px] md:hidden" src={logoSmall} alt="logo" />
-      <div className="flex gap-5 items-center bg-white p-2 rounded-full">
-        {/* <NavLinks userRole={user?.role} /> */}
-        <div className="w-fit flex gap-8 items-center justify-end rounded-full ">
+      <div className="flex flex-row-reverse md:flex-row gap-5 items-center bg-white p-2 rounded-full">
+        <div className="w-fit flex gap-4 items-center justify-end rounded-full ">
           <div
             className={`px-5 py-2 rounded-3xl text-[10px] ${
               user.role == "P" ? "hidden" : "flex"
@@ -125,7 +124,7 @@ const DashboardNavBar = () => {
               }`}
             />
           </div>
-          <div className={`${user.role == "D" ? "hidden" : "flex"}`}>
+          <div className={` ${user.role == "D" ? "hidden" : "flex"}`}>
             <Link to={"/patient/user#favorite"}>
               <img
                 className="w-[27px] md:w-[30px] cursor-pointer "
@@ -185,7 +184,7 @@ const UserControls = ({
   return (
     <div>
       {user ? (
-        <div className="relative pr-14">
+        <div className="relative md:pr-14">
           <div className="flex items-center gap-2">
             <img
               src={user.img}
@@ -194,9 +193,13 @@ const UserControls = ({
               onClick={toggleDropdown}
               className="cursor-pointer"
             />
-            <div className={`flex flex-col ${user.role ==="P"?"flex":"hidden"}`}>
+            <div
+              className={` ${user.role === "P" ? "flex flex-col" : "hidden"}`}
+            >
               <p className="text-[12px] font-medium">{user.name}</p>
-              <p className="text-[12px] font-medium text-lightblueButton">Premium member</p>
+              <p className="text-[12px] font-medium text-lightblueButton">
+                Premium member
+              </p>
             </div>
           </div>
           {isDropdownOpen && (
